@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-
+import ByGoogle from './components/ByGoogle';
+//import { Route, Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { Registro } from './components/Registro';
+import { Login } from './components/Login';
+import { Inicio } from './components/inicio';
+import { Navbar } from './components/Navbar';
+import Nosotros from './components/Nosotros';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <div className = 'py-3'>
+        <Switch>
+          <Route path = '/registro' component = {Registro}/>
+          <Route path= "/inicio" component = {Inicio}/>
+          <Route path = '/' component = {Login}/>
+          <Route path = '/nosotros' component = {Nosotros}/>
+        </Switch>
+      </div>
+      <ByGoogle/>
+    </Router>
   );
 }
 
